@@ -47,6 +47,19 @@ class Exam(Resource):
         if not exam:
             abort(404, "Exam not found")
         return exam
+    
+    @marshal_with(examFields)
+    def delete(self, id):
+        args = exam_args.parse_args()
+        exam = ExamModel.query.filter_by(id=id).first()
+        if not exam:
+            abort(404, "Exam not found")
+        exam.name = args["name"]
+        exam.courseID = args["courseID"]
+        db.session.delete(exam)
+        db.session.commit()
+        exams = ExamModel.query.all()
+        return exams, 204
 
 api.add_resource(Exams, '/api/exams')
 api.add_resource(Exam, '/api/exams/<int:id>')
