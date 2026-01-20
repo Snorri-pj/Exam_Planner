@@ -40,8 +40,16 @@ class Exams(Resource):
         exams = ExamModel.query.all()
         return exams, 201
 
+class Exam(Resource):
+    @marshal_with(examFields)
+    def get(self, id):
+        exam = ExamModel.query.filter_by(id=id).first()
+        if not exam:
+            abort(404, "Exam not found")
+        return exam
+
 api.add_resource(Exams, '/api/exams')
-#api.add_resource(Exam, '/api/exams/<int:id>')
+api.add_resource(Exam, '/api/exams/<int:id>')
 
 @app.route("/")
 def hello():
