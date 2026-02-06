@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/snorri/Documents/VScode/Exam_Planner/backend/venv"
+VIRTUAL_ENV="/Users/snorri/Documents/VScode/Python/Exam_Planner/backend/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

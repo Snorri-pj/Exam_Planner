@@ -29,7 +29,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/snorri/Documents/VScode/Exam_Planner/backend/venv"
+set -gx VIRTUAL_ENV "/Users/snorri/Documents/VScode/Python/Exam_Planner/backend/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
